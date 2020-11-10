@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public GameManager instance;
-
-
+    /*public static GameManager instance;
   
     void Awake()
     {
@@ -16,19 +14,20 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
     {
         
     }
+
     public void Start()
     {
-        SceneManager.LoadScene("GamePlay");
+        SceneManager.LoadScene(1);
     }
 
-    public void OnApplicationQuit()
+    public void Exit()
     {
         Application.Quit();
     }

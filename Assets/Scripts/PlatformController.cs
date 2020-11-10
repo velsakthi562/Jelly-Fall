@@ -36,17 +36,18 @@ public class PlatformController : MonoBehaviour
         Vector2 temp = transform.position;
         temp.y += moveSpeed * Time.deltaTime;
         transform.position = temp;
-        if(temp.y>= invisibleY)
+        if(temp.y >= invisibleY)
         {
             Destroy(gameObject);
         }
     }
     void BreakingDeactivate()
     {
-        Invoke("DeactivateGameObject", 0.5f);
+        Invoke("DeactivateGameObject", 0.35f);
     }
     void DeactivateGameObject()
     {
+        AudioManager.instance.Death();
         Destroy(gameObject);
     }
 
@@ -56,22 +57,24 @@ public class PlatformController : MonoBehaviour
         {
            if (isSpike)
             {
-                collision.transform.position = new Vector2(1000f, 1000f);
+                Destroy(gameObject);
+                AudioManager.instance.GameOver();
             }
         }
         
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.tag =="Player")
         {
             if (isBreaking)
             {
                 animator.Play("Break");
+                AudioManager.instance.LandSound();
             }
             if (isPlatform)
             {
-                //SoundManager.instance.LandSound();
+                AudioManager.instance.LandSound();
             }
         }
     }
@@ -81,12 +84,13 @@ public class PlatformController : MonoBehaviour
         {
             if (movingPlatformLeft)
             {
-                collision.gameObject.GetComponent<PlayerMoment>().PlatformMove(-2f);
+                collision.gameObject.GetComponent<PlayerMoment>().PlatformMove(-1f);
 
             }
-            if (movingPlatformRight)
+
+            else if (movingPlatformRight)
             {
-                collision.gameObject.GetComponent<PlayerMoment>().PlatformMove(2f);
+                collision.gameObject.GetComponent<PlayerMoment>().PlatformMove(1f);
 
             }
         }

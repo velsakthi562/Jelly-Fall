@@ -33,9 +33,6 @@ public class PlayerRange : MonoBehaviour
 
                 outOfRange = true;
 
-                //AudioManager.instance.DeathSound();
-                //GameManager.instance.RestartGame();
-
             }
 
         }
@@ -47,11 +44,9 @@ public class PlayerRange : MonoBehaviour
 
         if (collision.tag == "Spikes")
         {
-
+           
             Destroy(gameObject);
-            //AudioManager.instance.DeathSound();
-            //GameManager.instance.RestartGame();
-
+           
         }
 
     }
