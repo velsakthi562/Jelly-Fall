@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMoment : MonoBehaviour
 {
     private Rigidbody2D rb2d;
@@ -86,7 +87,7 @@ public class PlayerMoment : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-
+    
 }
 
 

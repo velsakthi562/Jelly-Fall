@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class ScoreManager : MonoBehaviour
 {
@@ -10,7 +12,9 @@ public class ScoreManager : MonoBehaviour
     private float timer;
     private bool isGameOver;
 
-    private bool isPause = false;
+   
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,26 +60,19 @@ public class ScoreManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Escape))
-            Pasue();
+        
     }
 
     public void SetGameOver(bool value)
     {
         isGameOver = value;
     }
-    void Pasue()
+    public void Reload()
     {
-        if (isPause == false)
-        {
-            isPause = true;
-            Time.timeScale = 0;
-        }
-        else
-        {
-            isPause = false;
-            Time.timeScale = 1;
-        }
+        SceneManager.LoadScene(1);
     }
-    
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

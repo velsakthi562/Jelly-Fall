@@ -127,4 +127,4 @@ MonoBehaviour:
   movingPlatformRight: 0
   isBreaking: 0
   isPlatform: 0
-  isSpike: 1
+  isSpike: 0
