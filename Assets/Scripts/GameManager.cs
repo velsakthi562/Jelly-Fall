@@ -37,5 +37,8 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-
+    public void OpenLinkedIn()
+    {
+        Application.OpenURL("https://www.linkedin.com/in/velsakthi562/");
+    }
 }
