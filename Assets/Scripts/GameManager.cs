@@ -1,28 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Text highScoreText;
 
-    /*public static GameManager instance;
-  
-    void Awake()
+    void Start()
     {
-        if(instance== null)
+        if(highScoreText != null)
         {
-            instance = this;
+            if (PlayerPrefs.HasKey("HIGHSCORE"))
+            {
+                highScoreText.text = "HighScore : " + PlayerPrefs.GetInt("HIGHSCORE");
+            }
+            else
+            {
+                highScoreText.text = "";
+                Debug.Log("NO HIGHSCORE!");
+            }
         }
-    }*/
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        else
+        {
+            Debug.LogError("HighScoreText not Added in Field!");
+        }
     }
 
-    public void Start()
+    public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
