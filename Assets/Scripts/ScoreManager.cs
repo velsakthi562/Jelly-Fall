@@ -55,7 +55,9 @@ public class ScoreManager : MonoBehaviour
                 }
             }
         }
-        Pasue();
+
+        if (Input.GetKey(KeyCode.Escape))
+            Pasue();
     }
 
     public void SetGameOver(bool value)
@@ -64,21 +66,16 @@ public class ScoreManager : MonoBehaviour
     }
     void Pasue()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (isPause == false)
         {
-            if (isPause == false)
-            {
-                isPause = true;
-                Time.timeScale = 0;
-            }
-            else
-            {
-                isPause = false;
-                Time.timeScale = 1;
-            }
+            isPause = true;
+            Time.timeScale = 0;
         }
-        
-        
+        else
+        {
+            isPause = false;
+            Time.timeScale = 1;
+        }
     }
     
 }

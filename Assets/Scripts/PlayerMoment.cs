@@ -8,6 +8,8 @@ public class PlayerMoment : MonoBehaviour
 
     public float moveSpeed;
 
+    private bool isPause = false;
+
     private Vector2 startPoint = Vector2.zero;
     private Vector2 currentPoint = Vector2.zero;
 
@@ -18,10 +20,12 @@ public class PlayerMoment : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         Movement();
 
+        if (Input.GetKey(KeyCode.Escape))
+            Pasue();
     }
     void Movement()
     {
@@ -67,6 +71,20 @@ public class PlayerMoment : MonoBehaviour
     public void PlatformMove(float x)
     {
         rb2d.velocity = new Vector2(x, rb2d.velocity.y);
+    }
+
+    public void Pasue()
+    {
+        if (isPause == false)
+        {
+            isPause = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            isPause = false;
+            Time.timeScale = 1;
+        }
     }
 
 }
