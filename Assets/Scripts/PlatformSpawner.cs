@@ -17,6 +17,13 @@ public class PlatformSpawner : MonoBehaviour {
     public float minX = -2f;
     public float maxX = 2f;
 
+    private bool isGameOver;
+
+    public void SetGameOver(bool value)
+    {
+        isGameOver = value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +33,8 @@ public class PlatformSpawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        SpawnPlatforms();
+        if (!isGameOver)
+            SpawnPlatforms();
     }
 
     void SpawnPlatforms()

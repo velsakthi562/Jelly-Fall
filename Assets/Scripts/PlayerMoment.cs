@@ -25,6 +25,7 @@ public class PlayerMoment : MonoBehaviour
     }
     void Movement()
     {
+#if UNITY_EDITOR
         if (Input.GetAxis("Horizontal") > 0f)
         {
             rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
@@ -33,7 +34,7 @@ public class PlayerMoment : MonoBehaviour
         {
             rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
         }
-#if UNITY_ANDROID
+#elif UNITY_ANDROID
         Touch touch = Input.GetTouch(0);
         switch (touch.phase)
         {
@@ -61,6 +62,7 @@ public class PlayerMoment : MonoBehaviour
                 break;
         }
 #endif
+
     }
     public void PlatformMove(float x)
     {

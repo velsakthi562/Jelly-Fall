@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 191144439669648032}
   - component: {fileID: 5718510880504683947}
   m_Layer: 0
-  m_Name: Speed Platform L
+  m_Name: Speed Platform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -166,9 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   invisibleY: 6
-  movingPlatformLeft: 0
+  movingPlatformLeft: 1
   movingPlatformRight: 0
   isBreaking: 0
   isPlatform: 0
   isSpike: 0
-  animator: {fileID: 0}

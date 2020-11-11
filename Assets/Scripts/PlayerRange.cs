@@ -6,7 +6,19 @@ public class PlayerRange : MonoBehaviour
 {
     public float min_X = -2.5f, max_X = 2.5f, min_Y = -5.6f;
     private bool outOfRange;
+    private bool isGameOver;
 
+    public BacgroundController bacgroundController;
+    public PlatformSpawner platformSpawner;
+    public ScoreManager scoreManager;
+
+    private void Start()
+    {
+        isGameOver = false;
+        bacgroundController.SetGameOver(isGameOver);
+        platformSpawner.SetGameOver(isGameOver);
+        scoreManager.SetGameOver(isGameOver);
+    }
     void Update()
     {
         CheckRange();
@@ -30,24 +42,23 @@ public class PlayerRange : MonoBehaviour
 
             if (!outOfRange)
             {
-
                 outOfRange = true;
-
             }
 
         }
 
-    } 
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.tag == "Spikes")
         {
-           
-            Destroy(gameObject);
-           
-        }
+            isGameOver = true;
+            bacgroundController.SetGameOver(isGameOver);
+            platformSpawner.SetGameOver(isGameOver);
+            scoreManager.SetGameOver(isGameOver);
 
+            Destroy(gameObject);
+        }
     }
 }

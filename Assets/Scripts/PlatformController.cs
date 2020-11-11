@@ -47,7 +47,7 @@ public class PlatformController : MonoBehaviour
     }
     void DeactivateGameObject()
     {
-        AudioManager.instance.Death();
+        
         Destroy(gameObject);
     }
 
@@ -58,7 +58,7 @@ public class PlatformController : MonoBehaviour
            if (isSpike)
             {
                 Destroy(gameObject);
-                AudioManager.instance.GameOver();
+                
             }
         }
         
@@ -69,12 +69,12 @@ public class PlatformController : MonoBehaviour
         {
             if (isBreaking)
             {
-                animator.Play("Break");
-                AudioManager.instance.LandSound();
+                animator.SetTrigger("Break");
+                
             }
             if (isPlatform)
             {
-                AudioManager.instance.LandSound();
+                
             }
         }
     }

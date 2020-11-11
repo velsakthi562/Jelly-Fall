@@ -7,6 +7,12 @@ public class BacgroundController : MonoBehaviour
 
     public float scrollSpeed;
     private MeshRenderer meshRenderer;
+    private bool isGameOver;
+
+    public void SetGameOver(bool value)
+    {
+        isGameOver = value;
+    }
 
 
     // Start is called before the first frame update
@@ -18,7 +24,8 @@ public class BacgroundController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Scroll();
+        if(!isGameOver)
+            Scroll();
     }
 
 
